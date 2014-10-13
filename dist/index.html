@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-controller="AppCtrl">
+<head>
+    <title data-ng-bind="pageTitle"></title>
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ctrlla">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:creator" content="@ctrlla">
+    <meta name="twitter:image:src" content="https://i.imgur.com/oluxIxn.png">
+    <meta property="og:title" content="CTRL LA"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://ctrl.la"/>
+    <meta property="og:image" content="https://i.imgur.com/oluxIxn.png"/>
+    <meta property="og:description" content=" ">
+
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href=""/>
+
+    <!-- inline scripts -->
+    <script>
+        window.ERRORS = [];
+        window.onerror = function(msg, url, line) {
+            ERRORS.push({
+                msg: msg,
+                url: url,
+                line: line
+            });
+        };
+    </script>
+</head>
+<body>
+
+<div class="container" data-ui-view></div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <p>
+                (c) 2014 <a href="http://ctrl.la">CTRL LA</a>.
+            </p>
+        </div>
+    </div>
+</footer>
+<script src="/assets/vendor/angular/angular.js"></script>
+<script src="/assets/vendor/ui-router/release/angular-ui-router.js"></script>
+<script src="/assets/vendor/ui-bootstrap/dist/ui-bootstrap-0.11.2.js"></script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
