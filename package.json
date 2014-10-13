@@ -1,0 +1,19 @@
+{
+  "name": "web-seed",
+  "version": "0.0.0",
+  "description": "Angular web app seed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CtrlLA/web-seed.git"
+  },
+  "author": "ishmaelthedestroyer <ishmaelthedestroyer@gmail.com> (http://ishmaelthedestroyer.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CtrlLA/web-seed/issues"
+  },
+  "homepage": "https://github.com/CtrlLA/web-seed"
+}
