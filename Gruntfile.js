@@ -208,24 +208,8 @@ module.exports = function(grunt) {
                     files.images,
                     files.vendor
                 ],
-                /*
-                 files: {
-                 etc: files.etc,
-                 fonts: files.fonts,
-                 images: files.images,
-                 vendor: files.vendor
-                 },
-                 */
                 dest: config.dist.dir
             }
-            /*
-             vendor: {
-             expand: true,
-             cwd: config.src.dir,
-             src: files.vendor,
-             dest: config.dist.dir
-             }
-             */
         },
 
         /** remove files from a directory or a directory itself */
@@ -260,7 +244,6 @@ module.exports = function(grunt) {
             css: {
                 expand: true,
                 src: config.dist.css
-                // src: config.dist.css
             },
 
             /** remove vendor files, fonts, etc */
