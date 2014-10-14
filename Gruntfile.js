@@ -52,8 +52,7 @@ module.exports = function(grunt) {
 
         /** sass */
         sass: [
-            'assets/sass/*.sass',
-            'assets/sass/**/*.sass'
+            'assets/sass/main.scss',
         ],
 
         /** html */
@@ -108,8 +107,7 @@ module.exports = function(grunt) {
                     logConcurrentOutput: true
                 },
                 tasks: [
-                    'watch:html',
-                    'watch:js',
+                    'watch',
                     'nodemon:dev'
                 ]
             }
@@ -132,6 +130,10 @@ module.exports = function(grunt) {
 
         /** watch files for changes */
         watch: {
+
+            options: {
+                livereload: true
+            },
 
             /** html watch config */
             html: {
@@ -162,6 +164,22 @@ module.exports = function(grunt) {
                 /** tasks to run on change */
                 tasks: [
                     'build:js'
+                ]
+            },
+
+            /** css watch config */
+            css: {
+                /** config */
+                options: {
+                    cwd: config.src.dir
+                },
+
+                /** files to watch */
+                files: files.sass,
+
+                /** tasks to run on change */
+                tasks: [
+                    'build:css'
                 ]
             }
         },
@@ -214,15 +232,14 @@ module.exports = function(grunt) {
             /** remove css files */
             css: {
                 expand: true,
-                cwd: config.dist.dir,
-                src: files.html,
-                filter: function(filename) {
-                    var
-                        split = filename.split('.'),
-                        ext = split[split.length - 1];
+                src: (function() {
+                    var cwd = config.src.dir;
 
-                    return ext === 'html';
-                }
+                    return files.sass.map(function(path) {
+                        return cwd + path;
+                    });
+                })(),
+                src: config.dist.css
             },
 
             /** remove vendor files, fonts, etc */
@@ -254,6 +271,31 @@ module.exports = function(grunt) {
                 })(),
                 dest: config.dist.js
             }
+        },
+
+        /** compile sass files */
+        sass: {
+            dev: {
+                src: (function() {
+                    var cwd = config.src.dir;
+
+                    return files.sass.map(function(path) {
+                        return cwd + path;
+                    });
+                })(),
+                dest: config.dist.css
+            }
+            /*
+             ,
+             compress: {
+             options: {
+             style: 'compressed'
+             },
+             files: {
+             '<%= paths.assets %>/css/screen.min.css': '<%= paths.sass %>/screen.scss'
+             }
+             }
+             */
         }
     };
 
@@ -279,6 +321,11 @@ module.exports = function(grunt) {
     grunt.registerTask('build:js', [
         'clean:js',
         'concat:js'
+    ]);
+
+    grunt.registerTask('build:css', [
+        'clean:css',
+        'sass:dev'
     ]);
 
     grunt.registerTask('build:html', [
