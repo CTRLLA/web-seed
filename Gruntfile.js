@@ -198,16 +198,27 @@ module.exports = function(grunt) {
                 src: files.etc,
                 dest: config.dist.dir
             },
-            vendor: {
+
+            assets: {
                 expand: true,
                 cwd: config.src.dir,
-                src: files.vendor,
+                src: [
+                    files.etc,
+                    files.fonts,
+                    files.images,
+                    files.vendor
+                ],
                 dest: config.dist.dir
             }
         },
 
         /** remove files from a directory or a directory itself */
         clean: {
+
+            /** everything */
+            dist: {
+                src: config.dist.dir
+            },
 
             /** remove html files */
             html: {
@@ -232,13 +243,6 @@ module.exports = function(grunt) {
             /** remove css files */
             css: {
                 expand: true,
-                src: (function() {
-                    var cwd = config.src.dir;
-
-                    return files.sass.map(function(path) {
-                        return cwd + path;
-                    });
-                })(),
                 src: config.dist.css
             },
 
@@ -313,7 +317,9 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
+        'clean:dist',
         'build:html',
+        'build:css',
         'build:js',
         'build:assets'
     ]);
@@ -335,6 +341,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build:assets', [
         'clean:assets',
-        'copy:vendor'
+        'copy:assets'
     ]);
 };
