@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-controller="AppCtrl as AppCtrl">
+<head>
+    <title data-ng-bind="AppCtrl.pageTitle"></title>
+
+    <!-- social media tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ctrlla">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:creator" content="@ctrlla">
+    <meta name="twitter:image:src" content="https://i.imgur.com/oluxIxn.png">
+    <meta property="og:title" content="CTRL LA"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="http://ctrl.la"/>
+    <meta property="og:image" content="https://i.imgur.com/oluxIxn.png"/>
+    <meta property="og:description" content=" ">
+
+    <!-- meta -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- vendor CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap/dist/css/bootstrap.css"/>
+
+    <!-- custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css"/>
+
+    <!-- inline scripts -->
+    <script>
+        window.ERRORS = [];
+        window.onerror = function(msg, url, line) {
+            ERRORS.push({
+                msg: msg,
+                url: url,
+                line: line
+            });
+        };
+    </script>
+</head>
+<body>
+
+<div class="container wide" data-ui-view></div>
+
+<footer class="container footer">
+    <div class="footer-inner">
+        <p>
+            (c) 2014 <a href="http://ctrl.la">CTRL LA</a>.
+        </p>
+    </div>
+</footer>
+
+<script src="/assets/vendor/browser-shim/shim.js"></script>
+
+<script src="/assets/vendor/angular/angular.js"></script>
+<script src="/assets/vendor/ui-router/release/angular-ui-router.js"></script>
+<script src="/assets/vendor/ui-bootstrap/dist/ui-bootstrap-0.11.2.js"></script>
+
+<!-- TODO: conditionally load livereload based on environment -->
+<script src="//localhost:35729/livereload.js"></script>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Modules - Styles for specific screens, layouts, etc
+   ========================================================================== */
+/*
+@import "modules/...";
+@import "modules/...";
+*/
+/* ==========================================================================
+   Helpers - Classes for adding margin, padding, colors, etc.
+   ========================================================================== */
+.clearfix, .clear-5, .clear-10, .clear-20, .clear-40, .clear-50, .clear-100 {
+  clear: both; }
+
+.clear-5 {
+  margin-bottom: 5px; }
+
+.clear-10 {
+  margin-bottom: 10px; }
+
+.clear-20 {
+  margin-bottom: 20px; }
+
+.clear-40 {
+  margin-bottom: 40px; }
+
+.clear-50 {
+  margin-bottom: 50px; }
+
+.clear-100 {
+  margin-bottom: 100px; }
+
+.wide {
+  width: 100% !important;
+  min-width: 100% !important; }
+
+.tall {
+  height: 100% !important;
+  min-height: 100% !important; }
+
+/* ==========================================================================
+   Footer - Bottom of the page
+   ========================================================================== */
+.footer {
+  width: 100%;
+  min-width: 100% !important; }
+
+/*# sourceMappingURL=main.css.map */
