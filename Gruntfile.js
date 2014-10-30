@@ -53,6 +53,7 @@ module.exports = function(grunt) {
         /** sass */
         sass: [
             'assets/sass/main.scss',
+            'assets/sass/**/*.scss'
         ],
 
         /** html */
@@ -69,7 +70,8 @@ module.exports = function(grunt) {
 
         /** fonts */
         fonts: [
-            'assets/fonts'
+            'assets/fonts/*.*',
+            'assets/fonts/**/*.*'
         ],
 
         /** images */
@@ -80,7 +82,8 @@ module.exports = function(grunt) {
 
         /** other static resources */
         etc: [
-            'assets/etc'
+            'assets/etc/*.*',
+            'assets/etc/**/*.*'
         ],
 
         /** 3rd party libraries */
