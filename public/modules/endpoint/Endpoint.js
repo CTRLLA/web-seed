@@ -10,21 +10,12 @@ app.service('Endpoint', [
          * @type {Object}
          */
         var settings = {
-            // TODO ...
-
+            method: 'GET',
             baseUrl: '',
+            params: null,
+            data: null,
             onSuccess: null,
             onError: null
-
-            /*
-             method: 'GET',
-             url: false,
-             path: false,
-             data: null,
-             // onSuccess: null,
-             // onError: null,
-             useToken: false
-             */
         };
 
         /**
@@ -34,7 +25,7 @@ app.service('Endpoint', [
          * @constructor
          */
         var Request = function(options) {
-            if (!(this instanceof options)) {
+            if (!(this instanceof Request)) {
                 return new Request(options);
             }
 
@@ -48,7 +39,7 @@ app.service('Endpoint', [
         Request.prototype.config = function(options) {
             // TODO: ...
 
-            options = angular.extend(settings, options || {});
+            options = angular.extend(angular.copy(settings), options || {});
 
             if (options.onSuccess) {
                 options._onSuccess = options.onSuccess;
@@ -86,11 +77,11 @@ app.service('Endpoint', [
 
             $http({
                 method: options.method,
-                url: options.url,
+                url: (options.baseUrl || '') + (options.url || options.path || ''),
                 data: options.data,
                 params: options.params
             }).then(function(response) {
-                return deferred.promise(response);
+                return deferred.resolve(response);
             }, function(error) {
                 return deferred.reject(error);
             });
@@ -99,7 +90,7 @@ app.service('Endpoint', [
         };
 
         function config(options) {
-            // TODO: ...
+            settings = angular.extend(settings, options || {});
         }
 
         return {
