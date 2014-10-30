@@ -93,3 +93,10 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+### Sass ###
+.sass-cache
+**/.sass-cache
+
+*.css.map
+**/*.css.map
